@@ -1,4 +1,6 @@
 ---
+name: Issue
+about: Create a new issue
 title: '[Type] '
 ---
 
