@@ -1,4 +1,3 @@
-// components/app-sidebar.tsx
 import { LayoutDashboard, Building2 } from "lucide-react";
 import {
   Sidebar,
@@ -6,9 +5,9 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarMenu,
-  SidebarMenuButton,
   SidebarMenuItem,
 } from "../ui/sidebar";
+import { cn } from "@/src/lib/utils";
 
 // 메뉴 데이터 (나중에 tRPC로 교체 가능)
 const items = [
@@ -27,22 +26,27 @@ const items = [
 export function AppSidebar() {
   return (
     <Sidebar collapsible="none" className="border-r">
-      {" "}
-      {/* 접히지 않도록 설정 */}
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild tooltip={item.title}>
-                    <a href={item.url}>
-                      <item.icon className="w-5 h-5" />
-                      <span className="text-base font-medium">
-                        {item.title}
-                      </span>
-                    </a>
-                  </SidebarMenuButton>
+                  <a
+                    href={item.url}
+                    className={cn(
+                      "w-full flex flex-row gap-3 pl-4 py-2.5 items-center",
+                      "transition-all duration-200 ease-in-out",
+                      "text-slate-600",
+
+                      "hover:bg-slate-100",
+                      "hover:text-slate-900",
+                      "group",
+                    )}
+                  >
+                    <item.icon className="w-5 h-5 transition-colors group-hover:text-slate-900" />
+                    <span className="text-sm font-medium">{item.title}</span>
+                  </a>
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>
