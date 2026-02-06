@@ -23,11 +23,9 @@ export default function RootLayout({
     <html lang="ko">
       <body className={`${sans.variable} antialiased`}>
         <Providers>
-          <div className="flex h-screen overflow-hidden">
+          <div className="flex h-screen w-full overflow-hidden">
             <AppSidebar />
-            <main className="flex-1 overflow-y-auto bg-background">
-              {children}
-            </main>
+            <main className="flex-1 min-w-0 overflow-y-auto">{children}</main>
           </div>
         </Providers>
       </body>
