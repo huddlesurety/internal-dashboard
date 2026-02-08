@@ -1,4 +1,4 @@
-"use client"; // essental for providers
+"use client"; // essential for providers
 
 import { SidebarProvider } from "../components/ui/sidebar";
 

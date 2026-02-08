@@ -8,6 +8,7 @@ import {
   SidebarMenuItem,
 } from "../ui/sidebar";
 import { cn } from "@/src/lib/utils";
+import Link from "next/link";
 
 // 메뉴 데이터 (나중에 tRPC로 교체 가능)
 const items = [
@@ -32,7 +33,7 @@ export function AppSidebar() {
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <a
+                  <Link
                     href={item.url}
                     className={cn(
                       "w-full flex flex-row gap-3 pl-4 py-2.5 items-center",
@@ -46,7 +47,7 @@ export function AppSidebar() {
                   >
                     <item.icon className="w-5 h-5 transition-colors group-hover:text-slate-900" />
                     <span className="text-sm font-medium">{item.title}</span>
-                  </a>
+                  </Link>
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>
